@@ -1,0 +1,37 @@
+import './App.css';
+
+// function App() {    // Convert this function App into a const app which would be an Arrow Function component-
+// React js is very reactive and dynamic in nature-
+const App = () => {
+  // A variable can be used which can be used inside JSX-
+  // Rendof of our application is dynamic-
+  const name = "Harshit"
+  // const title = "Srivastava"
+  const title = null;   // React fragment<>
+  const isTitleShowing = false;
+  // Reference of title variable can be given by {title};
+  return (
+    <div className="App">
+      {/* <h1>Harshit {title}!</h1>  */}
+      <h1>Harshit {isTitleShowing ? title : "Raj"}</h1>
+
+      {/* React fragment can be rendered inside the parantheses -> React fragment is just like an empty div(html) as inside it, we can put some code
+      <> these empty blocks are called react fragment
+      */}
+      {title ? (
+        <>
+          <h1>{name}</h1>
+        </>
+      ) : (
+        <>
+        <h1>Hi</h1>
+        <h4>There is no title as it's null</h4>
+        </>
+      )
+      }
+      {/* If you want to render two different elements, you need to wrap them in so called react fragment  */}
+    </div>
+  );
+}
+
+export default App;
