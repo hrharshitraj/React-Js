@@ -1,0 +1,72 @@
+/* Components - A piece of code that returns or renders some JSX-
+Many components might be created and then can be imported into the larger components;
+One advantage of creating a custom component and referencing it is, it might be used any number of times as function used to be used;
+*/
+
+/*
+Props -> Props allow you to pass dynamic data through react components, it's just arguments that is passed in react components.
+
+
+const Person = (props) => {   // Person Component-
+<Person name = {"Harry"}/>
+<Person/>
+
+// O/P:
+Name : Harry
+Last Name : Srivastava
+Age : 21
+Name :
+Last Name : Srivastava
+Age : 21
+
+Only where you have given the name dynamically, it would show the name in that call, rest all it won't show any name;
+*/
+
+/*
+Components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+The simplest way to define a component is to write a JavaScript function:
+Note: Always start component names with a capital letter.
+React treats components starting with lowercase letters as DOM tags.
+
+// Props-
+Props are arguments passed into React components.
+Props are also how you pass data from one component to another, as parameters.
+*/
+
+import './App.css';
+
+// A component-
+const Person = (props) => {
+  return (
+    <>
+    {/* 
+    No props used-
+    <h1>Name : Harshit</h1>
+    <h2>Last Name : Srivastava</h2>
+    <h2>Age : 21</h2>
+    */}
+
+    <h1>Name : {props.name}</h1>
+    <h2>Last Name : {props.lastName}</h2>
+    <h2>Age : {props.age}</h2>
+    </>
+  )
+}
+
+const App = () => {
+  return (
+    <div className="App">
+          {/* Here, our Person component can be called and whole component will be imported here inside the application*/}
+          <Person 
+          name = {"Harshit"} 
+          lastName = {"Srivastava"} 
+          age = {21}
+          />
+          <Person name = {"Gopal"} lastName = {"Singh"} age = {20}/>
+          <Person/>
+          
+    </div>
+  );
+}
+
+export default App;
