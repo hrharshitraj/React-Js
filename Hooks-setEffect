@@ -1,0 +1,33 @@
+// They let you use state and other React features without writing a class.
+// React State can only be changed using its own setter function, not manually;
+import {useState, useEffect} from 'react'; 
+import './App.css';
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  /* Calling useEffect-
+  useEffect allows us to do something on some kind of an event.
+  This is implemented the moment the page reloaded;
+
+  useEffect(() =>  {
+    // alert('Reloaded')
+  });
+  */
+
+  // As you know, this useEffect will be implemented the moment page is reloaded, How would you change the counter to 100 the moment page reloads?
+  useEffect(() =>  {
+  // counter = 100;  // Never Modify State Manually, never mutate the state -> Most important rule in React;
+  // By calling the setCounter, you can set the counter to 100 on reloadeing;
+  setCounter(100);   // Not be incremented or decremented on clicking, 2nd parameter called dependency array[] is used;
+  }, []);
+  return (
+    <div className="App">
+           <button onClick={() => setCounter((nextCount) => nextCount+1)} >+</button>
+          <h1>{counter}</h1>   
+          <button onClick={() => setCounter((prevCount) => prevCount-1)}>-</button>
+    </div>
+  );
+}
+
+export default App;
