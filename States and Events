@@ -1,0 +1,46 @@
+/* React State- (Javascript Object)
+State in react is a plain Javascript object used by react to represent a piece of information about the "components current situation";
+State is managed by the component itself;
+First of all, import useState from react;
+*/
+
+/*
+Events -> An event is an action that can be triggered as a result of the user action or some kind of a system generated event.
+
+onclick -> Fires when the user clicks the left mouse button on the object.
+Callback function doesn't have any name, it waits for some kind of command.
+
+<button onClick={() => alert('Clicked')}>+</button> -> Once you click on +, an alert will be popped showing Clicked;
+*/
+
+import {useState} from 'react'; // useState -> Hook, We can not use state without using(importing) hook;
+import './App.css';
+
+const App = () => {
+
+  // At the top of the component, use a concept of Array destructuring, that is how state works-
+  // Whenever you call something as a function and it starts with 'use', in react it's called as HOOK;
+  const [counter, setCounter] = useState(0);
+  // const[name, setName(Setter function for counter)] = useState(initialValue of counter);
+  // Now, youcan use this counter as a Normal javascript variable;
+  // Still, nothing changed, "Events" come into the picture now;
+  return (
+    <div className="App">
+    {/* If we click '-'  or '+', nothing will happen. */}
+          {/* <button onClick={() => alert('Clicked')} >+</button>  Clicked pop will be alerted, but we want to increase or decrease count on clicking*/}
+          {/* <button onClick={() => setCounter((prevCount) => prevCount+1)} >+</button>
+          Now, on clicking on + button, count will be incremented by 1;
+          prevCount is just a variable name;
+          Inside setCounter, a callback function is being used here.
+
+          All these changes happens without the web application being reloaded, beauty of React;
+          Once you click on refresh, counter will be equal to its initial value;
+           */}
+           <button onClick={() => setCounter((nextCount) => nextCount+1)} >+</button>
+          <h1>{counter}</h1>   
+          <button onClick={() => setCounter((prevCount) => prevCount-1)}>-</button>
+    </div>
+  );
+}
+
+export default App;
